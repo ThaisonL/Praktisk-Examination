@@ -1,40 +1,47 @@
+/* Grundinställningar */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+html, body {
+    height: 100%; /* Gör så att body tar upp hela höjden av viewporten */
+}
+
+body {
     font-family: 'Verdana', sans-serif;
     background-color: #e0f7fa; /* Ljusblå bakgrund, för en marin känsla */
     color: #003366;
     line-height: 1.6;
-  }
-  
-  /* Flexbox för header */
-  .header__container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Flexbox för header */
+.header__container {
     display: flex;
     flex-direction: column; /* Kolumnlayout för header */
     align-items: center;
     padding: 1rem;
     background-color: #003366; /* Marinblå färg för rubriken */
     color: white;
-  }
-  
-  .header__title {
+}
+
+.header__title {
     font-size: clamp(1.5rem, 2.5vw, 2.5rem);
     margin-bottom: 1rem; /* Avstånd mellan titel och nav */
-  }
-  
-  /* Navigationslista */
-  .header__nav-list {
+}
+
+/* Navigationslista */
+.header__nav-list {
     display: flex;
     flex-direction: column; /* Menylänkar i kolumn på mobil */
     list-style: none;
     gap: 1rem; /* Avstånd mellan menylänkar */
-  }
-  
-  .header__nav-link {
+}
+
+.header__nav-link {
     color: white;
     text-decoration: none;
     font-size: clamp(1rem, 2vw, 1.2rem);
@@ -49,113 +56,117 @@
     display: flex;
     justify-content: center;
     margin: 0;
-  }
-  
-  .header__nav-link:hover {
+}
+
+.header__nav-link:hover {
     background-color: #004d40; /* Mörkare grön vid hover */
     text-decoration: underline;
-  }
-  
-  /* Flexbox och styling för main-content */
-  .main-content {
+}
+
+/* Flexbox och styling för main-content */
+.main-content {
     padding: 2rem 1rem;
     display: flex;
     flex-direction: column; /* Kolumn-layout för sektionerna på små skärmar */
-    gap: 2rem; /* Avstånd mellan sektionerna */
-  }
-  
-  .section {
+    gap: 1rem; /* Avstånd mellan sektionerna */
+    flex-grow: 1; /* Gör att denna sektion växer och fyller ut mellan header och footer */
+}
+
+.section {
     background-color: #ffffff; /* Vit bakgrund för sektionerna */
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lätt skugga */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .section:hover {
+}
+
+.section:hover {
     transform: translateY(-5px); /* Liten upphöjning vid hover */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Starkare skugga vid hover */
-  }
-  
-  /* Artiklar */
-  .article__figure {
+}
+
+/* Artiklar */
+.article__figure {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     align-items: center;
-  }
-  
-  .article__img {
-    width: 100%;
+}
+
+/* Bildstorlek på små skärmar */
+.article__img {
+    width: 80%; /* Gör bilden mindre på små skärmar */
     height: auto;
-    max-width: 528px;
-    max-height: 528px; 
+    max-width: 300px;
+    max-height: 300px;
     object-fit: cover; /* Klipper bilden för att passa inom dessa dimensioner */
     border-radius: 5px;
-  }
-  
-  .article__title {
+}
+
+/* Bildstorlek på större skärmar */
+@media (min-width: 768px) {
+    .article__img {
+        width: 100%; /* Gör bilden större på skärmar över 768px */
+        max-width: 528px;
+        max-height: 528px;
+    }
+}
+
+.article__title {
     font-size: clamp(1.5rem, 2.5vw, 2rem);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5px;
     color: #004d40; /* Mörkgrön för titlar */
     display: flex;
     justify-content: center;
-  }
-  
-  .article__text {
+}
+
+.article__text {
     font-size: clamp(1rem, 2vw, 1.2rem);
     line-height: 1.5;
+    margin-top: 10px;
     color: #003366; /* Mörkblå för bättre läsbarhet */
-  }
-  
-  /* Footer */
-  .footer {
+}
+
+/* Footer */
+.footer {
     background-color: #003366;
     color: white;
     text-align: center;
     padding: 1.5rem;
-    margin-top: 2rem;
-  }
-  
-  .footer__contact {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-  }
-  
-  /* Media Queries för större skärmar */
-  @media (min-width: 768px) {
+    /* Ingen specifik positionering krävs eftersom flexbox hanterar placeringen längst ner */
+}
+
+/* Media Queries för större skärmar */
+@media (min-width: 768px) {
     .header__container {
-      flex-direction: column;
-      align-items: center; /* Behåll kolumnlayout för header */
+        flex-direction: column;
+        align-items: center; /* Behåll kolumnlayout för header */
     }
-  
+
     .header__nav-list {
-      flex-direction: row; /* Menylänkar i rad */
+        flex-direction: row; /* Menylänkar i rad */
     }
-  
+
     .header__nav-link {
-      flex-grow: 1; /* Gör länkarna lika stora */
+        flex-grow: 1; /* Gör länkarna lika stora */
     }
-  
+
     /* Sektionerna i två kolumner */
     .main-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* Två kolumner */
-      gap: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Två kolumner */
+        gap: 1rem;
     }
-  }
-  
-  @media (min-width: 1024px) {
-  
-  
+}
+
+@media (min-width: 1024px) {
     .header__nav-list {
-      flex-direction: row; /* Fortsätt med menylänkar i rad */
+        flex-direction: row; /* Fortsätt med menylänkar i rad */
     }
-  
+
     .main-content {
-      display: grid;
-      grid-template-columns:repeat(4,1fr);
-      gap: 2rem;
-      
+        display: grid;
+        grid-template-columns: (1fr, 1fr);
+        gap: 1rem;
     }
-  }
+}

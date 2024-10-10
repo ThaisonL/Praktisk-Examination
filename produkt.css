@@ -1,0 +1,158 @@
+/* Grundinställningar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%; /* Gör så att body tar upp hela höjden av viewporten */
+}
+
+body {
+  font-family: "Verdana", sans-serif;
+  background-color: #e0f7fa;
+  color: #003366;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Flexbox för header */
+.header__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: #003366;
+  color: white;
+}
+
+.header__title {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  margin-bottom: 1rem; /* Avstånd mellan titel och nav */
+}
+
+/* Navigationslista */
+.header__nav-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 1rem;
+}
+
+.header__nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  background-color: #00796b; /* Grön för marin känsla */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 100px; /* Sätter en minimi bredd */
+  display: flex;
+  justify-content: center;
+}
+
+.header__nav-link:hover {
+  background-color: #004d40;
+  text-decoration: underline;
+}
+
+/* Flexbox och styling för main-content */
+.main-content {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex-grow: 1; /* Gör att denna sektion växer och fyller ut mellan header och footer */
+}
+
+/* Styling för sektionerna */
+.section {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid-layout för produkter */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Artiklar */
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc; /* Tunn gräns för varje produkt */
+  border-radius: 10px;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-2px); /* Liten upphöjning vid hover */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Skugga vid hover */
+}
+
+/* Bildstorlek */
+.article__img {
+  width: 80%; /* Gör bilden mindre på små skärmar */
+  height: auto;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover; /* Klipper bilden för att passa inom dessa dimensioner */
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Knapp */
+.price-button {
+  margin-top: 10px; /* Avstånd mellan bild och knapp */
+  padding: 0.5rem 1rem;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.price-button:hover {
+  background-color: #004d40;
+}
+
+/* Footer */
+.footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+/* Bildstorlek på större skärmar */
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .article__img {
+    max-width: 528px;
+    max-height: 528px;
+  }
+
+  .header__nav-list {
+    flex-direction: row; /* Menylänkar i rad */
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

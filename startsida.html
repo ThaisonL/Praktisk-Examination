@@ -4,20 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="En sida om en fiskebutik" />
     <title>Fiskebutik</title>
-    <link rel="stylesheet" href="index.css/startsida.css" />
+    <link rel="stylesheet" href="startsida.css/startsida.css" />
   </head>
   <body>
     <!-- Header -->
     <header class="header">
       <div class="header__container">
-        <h1 class="header__title">Catch Em All</h1>
+        <h1 class="header__title">Smålandsfiskebutik</h1>
         <nav class="header__nav">
           <ul class="header__nav-list">
-            <li><a href="index.html" class="header__nav-link">Hem</a></li>
-            <li>
-              <a href="produkter.html" class="header__nav-link">Produkter</a>
-            </li>
-            <li><a href="kontakt" class="header__nav-link">Kontakt</a></li>
+            <ul class="header__nav-list">
+              <li><a class="header__nav-link" href="startsida.html" aria-label="Till startsidan">Hem</a></li>
+              <li><a class="header__nav-link" href="produkt.html">Produkter</a></li>        
+              <li><a class="header__nav-link" href="kontakt.html">Kontakt</a></li>
+          </ul>
           </ul>
         </nav>
       </div>
@@ -55,7 +55,7 @@
               alt="Bild på en fiskerulle"
               class="article__img"
             />
-            <figcaption>Kastspö med rulle för allround-fiske</figcaption>
+            <figcaption>Klassisk rulle för allround-fiske</figcaption>
           </figure>
           <p class="article__text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vel
@@ -75,7 +75,7 @@
               alt="Bild på fiskedrag"
               class="article__img"
             />
-            <figcaption>Metspö för traditionellt mete</figcaption>
+            <figcaption>Traditionellt fiskedrag</figcaption>
           </figure>
           <p class="article__text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
@@ -108,7 +108,7 @@
 
     <!-- Footer -->
     <footer class="footer" id="kontakt">
-      <p>&copy; 2024 CatchEmAll AB - All rights reserved.</p>
+      <p>&copy; 2024 Smålandsfiskebutik AB - All rights reserved.</p>
     </footer>
   </body>
 </html>

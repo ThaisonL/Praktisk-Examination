@@ -1,0 +1,150 @@
+/* Grundinställningar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #e0f7fa;
+    color: #003366;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Flexbox för header */
+.header__container {
+    display: flex;
+    flex-direction: column; /* Kolumnlayout för header */
+    align-items: center;
+    padding: 1rem;
+    background-color: #003366;
+    color: white;
+}
+
+.header__title {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    margin-bottom: 1rem;
+}
+
+/* Navigationslista */
+.header__nav-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 1rem;
+    margin-bottom: 10px;
+}
+
+.header__nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    background-color: #00796b;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 100px; /* Sätter en minimi bredd */
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.header__nav-link:hover {
+    background-color: #004d40; /* Mörkare grön vid hover */
+    text-decoration: underline;
+}
+
+/* Flexbox och styling för main-content */
+.main-content {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column; /* Kolumn-layout för sektionerna för mobile*/
+    flex-grow: 1; /* Gör att denna sektion växer och fyller ut mellan header och footer */
+}
+
+.section {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.section:hover {
+    transform: translateY(-5px); /* Liten upphöjning vid hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Starkare skugga vid hover */
+}
+
+/* Formulär styling */
+h2 {
+    margin-bottom: 1rem;
+    color: #003366;
+}
+
+form {
+    display: flex;
+    flex-direction: column; /* Kolumn-layout för formulär */
+    gap: 1rem; /* Avstånd mellan formulärfält */
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    background-color: #00796b;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #004d40;
+}
+
+
+.footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* Media Queries för större skärmar */
+@media (min-width: 768px) {
+    .header__nav-list {
+        flex-direction: row; /* Menylänkar i rad */
+    }
+
+    /* Sektionerna i två kolumner */
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr; /* Två kolumner */
+        gap: 1rem;
+    }
+}

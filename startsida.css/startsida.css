@@ -163,10 +163,4 @@ body {
     .header__nav-list {
         flex-direction: row; /* Fortsätt med menylänkar i rad */
     }
-
-    .main-content {
-        display: grid;
-        grid-template-columns: (1fr, 1fr);
-        gap: 1rem;
-    }
 }
